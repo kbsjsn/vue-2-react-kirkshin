@@ -1,0 +1,33 @@
+$green: #009c4b;
+
+p {
+  margin-top: 10px;
+}
+
+.tasks {
+  margin-top: 20px;
+}
+
+.task {
+  margin-top: 5px;
+  padding: 2px 6px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity, background-color;
+  transition-duration: 0.2s;
+
+  &.complete {
+    opacity: 0.25;
+    color:$green;
+  }
+
+  &:not(.complete):hover {
+    background-color: mix(white, $green, 80%);
+    opacity: 1;
+  }
+}
+
+.status {
+  font-weight: 700;
+  margin-top: 20px;
+}

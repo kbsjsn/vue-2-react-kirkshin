@@ -1,0 +1,17 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.logo {
+  width: 128px;
+}
+
+.title {
+  margin-top: 30px;
+}
