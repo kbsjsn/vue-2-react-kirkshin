@@ -1,15 +1,15 @@
 import React from 'react';
 import TaskItem from './TaskItem';
 
-const Tasks = ({ checklist, completedTasks, setCompletedTasks }) => (
+const Tasks = ({ updatedChecklist, setUpdatedChecklist }) => (
   <div className="tasks">
     <ul>
       {
-        checklist.map((task) => 
+        updatedChecklist.map((task) => 
           <TaskItem key={task.id} 
             task={task}
-            setCompletedTasks={setCompletedTasks}
-            completedTasks={completedTasks}
+            updatedChecklist={updatedChecklist}
+            setUpdatedChecklist={setUpdatedChecklist}
           >
             {task.message}
           </TaskItem>

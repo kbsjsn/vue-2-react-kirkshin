@@ -1,16 +1,15 @@
 import React from 'react';
 
-const TaskItem = ({ task, completedTasks, setCompletedTasks, children }) => (
+const TaskItem = ({ task, updatedChecklist, setUpdatedChecklist, children }) => (
   <>
     <li className={'task ' + (task.complete && 'complete')} 
       onClick={() => {
-        task.complete = !task.complete;
-        if (task.complete) {
-          setCompletedTasks(completedTasks + 1);
-        }
-        else {
-          setCompletedTasks(completedTasks - 1);
-        }
+        setUpdatedChecklist(updatedChecklist.map(currTask => {
+          if (currTask.id === task.id) {
+            currTask.complete = !currTask.complete;
+          }
+          return currTask;
+        }))
       }} 
     >
       {children}

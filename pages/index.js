@@ -1,9 +1,19 @@
+import { useState } from 'react';
 import Layout from '../layouts/Default';
-import TasksStatus from '../components/TasksStatus';
+import Tasks from '../components/Tasks';
+import Status from '../components/Status';
 import axios from 'axios';
 import './index.scss';
 
 const Index = ({ checklist }) => {
+  const [updatedChecklist, setUpdatedChecklist] = useState(checklist);
+  const completed = updatedChecklist.reduce((acc, task) => {
+    if (task.complete) {
+      return acc + 1;
+    } 
+    return acc;
+  }, 0);
+
   return (
     <Layout>
       <p>
@@ -14,7 +24,12 @@ const Index = ({ checklist }) => {
         some of the tasks you'll be encountering in your first month with
         Bukwild.  Such as:
       </p>
-      <TasksStatus checklist={checklist} />
+      <Tasks 
+        updatedChecklist={updatedChecklist}
+        completed={completed}
+        setUpdatedChecklist={setUpdatedChecklist} 
+      />
+      <Status completedTasks={completed} totalTasks={updatedChecklist.length} />
     </Layout>
   );
 };
